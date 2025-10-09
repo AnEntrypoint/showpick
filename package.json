@@ -1,0 +1,27 @@
+{
+  "name": "wfgy-video-processor",
+  "version": "1.0.0",
+  "description": "WFGY Core OneLine v2.0 Video Content Processor with Critical Threshold Filtering",
+  "main": "wfgy_video_processor.js",
+  "scripts": {
+    "start": "node wfgy_video_processor.js",
+    "test": "node test_processor.js",
+    "quick-test": "node quick_test.js",
+    "clean": "node cleanup.js"
+  },
+  "dependencies": {},
+  "keywords": [
+    "wfgy",
+    "video-processing",
+    "content-filtering",
+    "ai-analysis",
+    "threshold-filtering",
+    "node-fetch",
+    "builtin"
+  ],
+  "author": "WFGY Processor",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
