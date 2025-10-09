@@ -276,16 +276,11 @@ class WFGYVideoProcessor {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    model: 'glm-4.5v',
+                    model: 'glm-4.5-air',
                     messages: [
                         {
                             role: 'user',
-                            content: [
-                                {
-                                    type: 'text',
-                                    text: prompt
-                                }
-                            ]
+                            content: prompt
                         }
                     ],
                     max_tokens: 1000,
