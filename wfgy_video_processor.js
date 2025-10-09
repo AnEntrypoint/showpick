@@ -263,8 +263,10 @@ class WFGYVideoProcessor {
      */
     async analyzeWithAI(show) {
         if (!this.config.apiToken) {
-            return this.analyzeWithoutAI(show);
+            throw new Error('API token is required - no fallback to rule-based analysis allowed');
         }
+
+        console.log(`🤖 Analyzing with GLM-4.5-air: ${show.title}`);
 
         try {
             const prompt = this.createAIPrompt(show);
@@ -294,94 +296,194 @@ class WFGYVideoProcessor {
             }
 
             const data = await response.json();
-            return this.parseAIResponse(data.choices[0].message.content, show);
+            const message = data.choices[0].message;
+
+            // Check both reasoning_content and content fields for the rating
+            const reasoningContent = message.reasoning_content || '';
+            const regularContent = message.content || '';
+
+            // Look for rating in the content field first (where GLM-4.5-air puts the final answer)
+            let numberMatch = regularContent.match(/^\s*([0-9]|10)\s*$/);
+            let rating = numberMatch ? parseInt(numberMatch[0]) : null;
+
+            // If not found in content field, look in reasoning_content for the final rating
+            if (rating === null) {
+                // Look for patterns like "So, I'll go with 2" or "rating: 3" near the end
+                const finalMatch = reasoningContent.match(/(?:go with|rating[^:]*:?\s*|final[^:]*:?\s*|answer[^:]*:?\s*)\s*([0-9]|10)\b/gi);
+                if (finalMatch) {
+                    // Extract the number from the last match
+                    const lastMatch = finalMatch[finalMatch.length - 1];
+                    const extractedNumber = lastMatch.match(/\b([0-9]|10)\b/);
+                    if (extractedNumber) {
+                        rating = parseInt(extractedNumber[0]);
+                    }
+                }
+            }
+
+            // Fallback: look for any number if specific patterns don't work
+            if (rating === null) {
+                const allNumbers = (reasoningContent + regularContent).match(/\b([0-9]|10)\b/g);
+                if (allNumbers && allNumbers.length > 0) {
+                    // Use the last number found (likely to be the final answer)
+                    rating = parseInt(allNumbers[allNumbers.length - 1]);
+                }
+            }
+
+            // Default if still not found
+            if (rating === null) {
+                rating = 5;
+            }
+
+            const delta_s = rating / 10;
+
+            // Quick zone calculation
+            let zone;
+            if (delta_s < 0.40) zone = 'safe';
+            else if (delta_s < 0.60) zone = 'transit';
+            else if (delta_s < 0.85) zone = 'risk';
+            else zone = 'danger';
+
+            const result = {
+                delta_s: delta_s,
+                zone: zone,
+                entities: [],
+                relations: [],
+                constraints: [],
+                confidence: rating <= 3 ? 9 : (rating <= 6 ? 7 : 5),
+                reasoning: `AI analysis: ${show.title} - Rating ${rating}/10`
+            };
+
+            console.log(`✅ AI analysis complete: ${show.title} - Δ: ${result.delta_s.toFixed(3)}, Zone: ${result.zone}`);
+
+            return result;
 
         } catch (error) {
-            console.warn(`AI analysis failed for ${show.title}, falling back to rule-based:`, error.message);
-            return this.analyzeWithoutAI(show);
+            console.error(`❌ AI analysis failed for ${show.title}:`, error.message);
+            throw new Error(`AI analysis required and failed: ${error.message}`);
         }
     }
 
     /**
-     * Create AI prompt for content analysis
+     * Create AI prompt for content analysis with full metadata
      */
     createAIPrompt(show) {
-        return `You are analyzing video content for millennial appeal using WFGY framework.
+        // Build comprehensive metadata string
+        const metadata = [];
 
-VIDEO TO ANALYZE:
-Title: ${show.title}
-Description: ${show.description || 'No description'}
-Category: ${show.category || 'Unknown'}
-Downloads: ${show.downloads || 0}
-Date: ${show.date || 'Unknown'}
+        // Basic info
+        if (show.title) metadata.push(`TITLE: ${show.title}`);
+        if (show.description) metadata.push(`DESCRIPTION: ${show.description}`);
+        if (show.category) metadata.push(`CATEGORY: ${show.category}`);
 
-WFGY ANALYSIS FRAMEWORK:
-Calculate delta_s = 1 - cosine_similarity(input, goal) where:
-- Input: The video content above
-- Goal: "Millennial entertainment value - authentic, creative, non-corporate"
+        // Genres and themes
+        if (show.genres && show.genres.length > 0) {
+            metadata.push(`GENRES: ${show.genres.join(', ')}`);
+        }
+        if (show.keywords && show.keywords.length > 0) {
+            metadata.push(`KEYWORDS: ${show.keywords.join(', ')}`);
+        }
+        if (show.themes && show.themes.length > 0) {
+            metadata.push(`THEMES: ${show.themes.join(', ')}`);
+        }
 
-CRITICAL CHARACTERISTICS:
-- HIGH VALUE: 90s nostalgia, gaming culture, internet comedy, indie content, anime, cult classics
-- LOW VALUE: Corporate entertainment, educational content, religious content, mainstream garbage
+        // Temporal info
+        if (show.year || show.date) {
+            metadata.push(`YEAR: ${show.year || show.date}`);
+        }
+        if (show.decade) metadata.push(`DECADE: ${show.decade}`);
+        if (show.era) metadata.push(`ERA: ${show.era}`);
 
-OUTPUT FORMAT:
-DELTA_S: [number between 0-1]
-ZONE: [safe/transit/risk/danger]
-ENTITIES: [comma-separated key entities]
-RELATIONS: [comma-separated key relationships]
-CONSTRAINTS: [comma-separated content constraints]
-CONFIDENCE: [1-10]
-REASONING: [brief explanation]
+        // Ratings and popularity
+        if (show.rating) metadata.push(`RATING: ${show.rating}/10`);
+        if (show.imdb_rating) metadata.push(`IMDB: ${show.imdb_rating}/10`);
+        if (show.views || show.downloads) {
+            metadata.push(`POPULARITY: ${show.views || show.downloads}`);
+        }
+        if (show.maturity) metadata.push(`MATURITY: ${show.maturity}`);
 
-Analyze this content for millennial appeal and provide the metrics above.`;
+        // Production info
+        if (show.studio || show.network) {
+            metadata.push(`PRODUCED BY: ${show.studio || show.network}`);
+        }
+        if (show.director) metadata.push(`DIRECTOR: ${show.director}`);
+        if (show.cast && show.cast.length > 0) {
+            metadata.push(`CAST: ${show.cast.slice(0, 3).join(', ')}`);
+        }
+
+        // Additional context
+        if (show.platform) metadata.push(`PLATFORM: ${show.platform}`);
+        if (show.language) metadata.push(`LANGUAGE: ${show.language}`);
+        if (show.country) metadata.push(`COUNTRY: ${show.country}`);
+        if (show.duration) metadata.push(`DURATION: ${show.duration}`);
+
+        // Cultural context
+        if (show.cultural_impact) metadata.push(`CULTURAL IMPACT: ${show.cultural_impact}`);
+        if (show.nostalgia_factor) metadata.push(`NOSTALGIA: ${show.nostalgia_factor}/10`);
+        if (show.anti_corporate) metadata.push(`ANTI-CORPORATE: ${show.anti_corporate}`);
+
+        return `RATE 0-10 FOR MILLENNIAL APPEAL (0=extremely cool, 10=completely lame):
+
+${metadata.join('\n')}
+
+MILLENNIAL PREFERENCES:
+• HIGH APPEAL (0-3): 90s nostalgia, gaming culture, internet comedy, indie content, anti-corporate, cult classics, alternative media, early internet, retro tech
+• MEDIUM APPEAL (4-6): Some mainstream appeal, balanced content, moderate nostalgia
+• LOW APPEAL (7-10): Corporate media, educational content, religious programming, family-friendly, mainstream entertainment, Disney content
+
+RESPOND WITH ONLY A SINGLE NUMBER 0-10`;
     }
 
     /**
-     * Parse AI response
+     * Parse AI response - extract 0-10 rating and convert to delta
      */
     parseAIResponse(response, show) {
-        const lines = response.split('\n');
-        const result = {
-            delta_s: 0.5,
-            zone: 'transit',
+        // Look for numbers between 0-10
+        const numberMatch = response.match(/\b([0-9]|10)\b/);
+        let rating = 5; // default
+
+        if (numberMatch) {
+            rating = parseInt(numberMatch[0]);
+        }
+
+        // Convert 0-10 rating to 0-1 delta (inverse scale)
+        // 0 = best appeal, 10 = worst appeal
+        const delta_s = Math.max(0, Math.min(1, rating / 10));
+
+        // Determine zone based on delta
+        let zone;
+        if (delta_s < 0.40) zone = 'safe';
+        else if (delta_s < 0.60) zone = 'transit';
+        else if (delta_s < 0.85) zone = 'risk';
+        else zone = 'danger';
+
+        // Calculate confidence based on rating
+        let confidence = 5;
+        if (rating <= 3) confidence = 9;
+        else if (rating <= 5) confidence = 7;
+        else if (rating <= 7) confidence = 5;
+        else confidence = 3;
+
+        // Generate reasoning based on rating
+        let reasoning = `AI analysis: ${show.title} `;
+        if (rating <= 3) {
+            reasoning += 'has very high millennial appeal';
+        } else if (rating <= 6) {
+            reasoning += 'has good millennial appeal';
+        } else if (rating <= 8) {
+            reasoning += 'has moderate millennial appeal';
+        } else {
+            reasoning += 'has limited millennial appeal';
+        }
+
+        return {
+            delta_s: delta_s,
+            zone: zone,
             entities: [],
             relations: [],
             constraints: [],
-            confidence: 5,
-            reasoning: 'AI analysis'
+            confidence: confidence,
+            reasoning: reasoning
         };
-
-        lines.forEach(line => {
-            const match = line.match(/^(\w+):\s*(.+)$/);
-            if (match) {
-                const [_, key, value] = match;
-                switch (key.toLowerCase()) {
-                    case 'delta_s':
-                        result.delta_s = Math.max(0, Math.min(1, parseFloat(value) || 0.5));
-                        break;
-                    case 'zone':
-                        result.zone = value.toLowerCase();
-                        break;
-                    case 'entities':
-                        result.entities = value.split(',').map(e => e.trim()).filter(e => e);
-                        break;
-                    case 'relations':
-                        result.relations = value.split(',').map(r => r.trim()).filter(r => r);
-                        break;
-                    case 'constraints':
-                        result.constraints = value.split(',').map(c => c.trim()).filter(c => c);
-                        break;
-                    case 'confidence':
-                        result.confidence = Math.max(1, Math.min(10, parseInt(value) || 5));
-                        break;
-                    case 'reasoning':
-                        result.reasoning = value;
-                        break;
-                }
-            }
-        });
-
-        return result;
     }
 
     /**
@@ -527,7 +629,7 @@ Analyze this content for millennial appeal and provide the metrics above.`;
     async processAllShows(shows) {
         console.log('🎬 WFGY Video Content Processor Starting...');
         console.log(`📊 Processing ${shows.length} shows with threshold ${this.config.B_c}`);
-        console.log(`🧠 AI Analysis: ${this.config.apiToken ? 'Enabled' : 'Disabled (Rule-based fallback)'}`);
+        console.log(`🧠 AI Analysis: ${this.config.apiToken ? 'GLM-4.5-air ONLY (No fallback)' : 'ERROR: No API token'}`);
         console.log('');
 
         const results = [];
