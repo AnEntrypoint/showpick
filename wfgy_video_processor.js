@@ -2,7 +2,7 @@
 
 /**
  * WFGY_Core_OneLine_v2.0 Video Content Processor
- * Moral threshold-based filtering with WFGY framework integration
+ * Restored with proper z.ai API integration and improved English filtering
  */
 
 const fs = require('fs');
@@ -41,9 +41,9 @@ class WFGYVideoProcessor {
             apiToken: config.apiToken || process.env.ANTHROPIC_AUTH_TOKEN,
 
             // Processing configuration
-            batchSize: config.batchSize || 10,
+            batchSize: config.batchSize || 5,                 // Smaller batches for AI processing
             maxRetries: config.maxRetries || 3,
-            timeout: config.timeout || 180000
+            timeout: config.timeout || 120000                 // 2 minutes per request
         };
 
         // State management
@@ -70,6 +70,54 @@ class WFGYVideoProcessor {
             convergenceRate: 0,
             anchorFlips: 0
         };
+
+      }
+
+  
+    /**
+     * Initialize WFGY anchors
+     */
+    initializeAnchors(shows) {
+        console.log('🔧 Initializing WFGY anchors...');
+
+        // Set initial anchors based on content analysis
+        this.state.anchors.set('content_quality', 0.5);
+        this.state.anchors.set('entertainment_value', 0.5);
+        this.state.anchors.set('millennial_appeal', 0.5);
+
+        console.log(`✅ Initialized ${this.state.anchors.size} anchors`);
+    }
+
+    /**
+     * Update WFGY state with new delta
+     */
+    updateWFGYState(delta_s, showId) {
+        this.state.previousDelta = this.state.currentDelta;
+        this.state.currentDelta = delta_s;
+
+        // Check for anchor flips
+        if (this.state.iteration > 0) {
+            const deltaChange = Math.abs(delta_s - this.state.previousDelta);
+            if (deltaChange >= this.config.h) {
+                this.stats.anchorFlips++;
+                // Flip lambda state
+                this.state.lambda = this.state.lambda === 'convergent' ? 'divergent' : 'convergent';
+            }
+        }
+
+        this.state.iteration++;
+    }
+
+    /**
+     * Apply BBAM (Boundary-based Adaptive Adjustment)
+     */
+    applyBBAM(delta_s) {
+        const P = Math.pow(this.state.progress, this.config.omega);
+        const alt = this.state.lambda === 'convergent' ? 1 : -1;
+        const Phi = this.config.phi_delta * alt + this.config.epsilon;
+        const W_c = Math.max(-this.config.theta_c, Math.min(this.config.theta_c, delta_s * P + Phi));
+
+        return Math.max(0, Math.min(1, delta_s + W_c * 0.1));
     }
 
     /**
@@ -78,7 +126,6 @@ class WFGYVideoProcessor {
     calculateCosineSimilarity(input, goal) {
         if (!input || !goal) return 0;
 
-        // Simple text similarity (can be enhanced with embeddings)
         const inputTokens = this.tokenize(input.toLowerCase());
         const goalTokens = this.tokenize(goal.toLowerCase());
 
@@ -96,177 +143,82 @@ class WFGYVideoProcessor {
     }
 
     /**
-     * Calculate similarity estimate using WFGY weights
-     */
-    calculateSimilarityEstimate(input, goal, entities, relations, constraints) {
-        const baseSimilarity = this.calculateCosineSimilarity(input, goal);
-
-        // Entity similarity component
-        const entitySim = entities && entities.length > 0 ?
-            entities.reduce((sum, entity) => sum + this.calculateCosineSimilarity(input, entity), 0) / entities.length : 0;
-
-        // Relation similarity component
-        const relationSim = relations && relations.length > 0 ?
-            relations.reduce((sum, relation) => sum + this.calculateCosineSimilarity(input, relation), 0) / relations.length : 0;
-
-        // Constraint similarity component
-        const constraintSim = constraints && constraints.length > 0 ?
-            constraints.reduce((sum, constraint) => sum + this.calculateCosineSimilarity(input, constraint), 0) / constraints.length : 0;
-
-        // Weighted combination
-        const sim_est = this.config.w_e * entitySim +
-                       this.config.w_r * relationSim +
-                       this.config.w_c * constraintSim;
-
-        // Renormalize to [0,1]
-        return Math.max(0, Math.min(1, sim_est));
-    }
-
-    /**
-     * Calculate delta_s using WFGY formula
-     */
-    calculateDelta(input, goal, entities = [], relations = [], constraints = []) {
-        let delta;
-
-        if (this.state.anchors.size > 0) {
-            // Use similarity estimation with anchors
-            const sim_est = this.calculateSimilarityEstimate(input, goal, entities, relations, constraints);
-            delta = 1 - sim_est;
-        } else {
-            // Simple cosine similarity
-            delta = 1 - this.calculateCosineSimilarity(input, goal);
-        }
-
-        return Math.max(0, Math.min(1, delta));
-    }
-
-    /**
      * Determine zone based on delta_s
      */
-    getZone(delta) {
-        if (delta < this.config.zones.safe) return 'safe';
-        if (delta < this.config.zones.transit) return 'transit';
-        if (delta < this.config.zones.risk) return 'risk';
+    getZone(delta_s) {
+        if (delta_s < this.config.zones.safe) return 'safe';
+        if (delta_s < this.config.zones.transit) return 'transit';
+        if (delta_s < this.config.zones.risk) return 'risk';
         return 'danger';
     }
 
     /**
-     * Update WFGY state
+     * Create AI prompt for comprehensive content analysis
      */
-    updateWFGYState(currentDelta, showIdentifier) {
-        // Update delta history
-        this.state.previousDelta = this.state.currentDelta;
-        this.state.currentDelta = currentDelta;
-        this.state.iteration++;
+    createAIPrompt(show) {
+        // Build comprehensive metadata string
+        const metadata = [];
 
-        // Check for anchor flips
-        let alt = 0;
-        for (let [anchor, value] of this.state.anchors) {
-            const newValue = this.evaluateAnchor(showIdentifier, anchor);
-            if (Math.sign(newValue) !== Math.sign(value) && Math.abs(value) > this.config.h) {
-                alt = newValue > value ? 1 : -1;
-                this.stats.anchorFlips++;
-                this.state.anchors.set(anchor, newValue);
-                break;
+        // Basic info
+        if (show.title) metadata.push(`TITLE: ${show.title}`);
+        if (show.description) metadata.push(`DESCRIPTION: ${show.description}`);
+        if (show.creator) metadata.push(`CREATOR: ${show.creator}`);
+        if (show.category) metadata.push(`CATEGORY: ${show.category}`);
+
+        // Video files info
+        if (show.videoFiles && show.videoFiles.length > 0) {
+            metadata.push(`VIDEO COUNT: ${show.videoFiles.length}`);
+            const durations = show.videoFiles.map(f => f.durationMs).filter(d => d);
+            if (durations.length > 0) {
+                const avgDuration = durations.reduce((a, b) => a + b, 0) / durations.length;
+                metadata.push(`AVERAGE DURATION: ${(avgDuration / 60000).toFixed(1)} minutes`);
             }
         }
 
-        // Calculate progress
-        if (this.state.iteration === 1) {
-            this.state.progress = this.config.zeta_min;
-        } else {
-            const deltaChange = this.state.previousDelta - this.state.currentDelta;
-            this.state.progress = Math.max(this.config.zeta_min, deltaChange);
+        // Temporal info
+        if (show.year || show.date) {
+            metadata.push(`YEAR: ${show.year || show.date}`);
         }
 
-        // Calculate power term
-        const P = Math.pow(this.state.progress, this.config.omega);
-
-        // Calculate phi
-        const Phi = this.config.phi_delta * alt + this.config.epsilon;
-
-        // Calculate W_c
-        this.state.W_c = Math.max(-this.config.theta_c,
-                         Math.min(this.config.theta_c,
-                         this.config.B_c * P + Phi));
-
-        // Determine lambda (state type)
-        const Delta = this.state.currentDelta - this.state.previousDelta;
-        const E_res = this.calculateRollingMean();
-
-        if (Delta <= -0.02 && E_res >= this.state.previousDelta) {
-            this.state.lambda = 'convergent';
-        } else if (Math.abs(Delta) < 0.02 && Math.abs(E_res - this.state.previousDelta) < 0.01) {
-            this.state.lambda = 'recursive';
-        } else if (Delta > -0.02 && Delta <= 0.04 && this.state.iteration > 3) {
-            this.state.lambda = 'divergent';
-        } else if (Delta > 0.04 || this.hasConflictingAnchors()) {
-            this.state.lambda = 'chaotic';
+        // Popularity metrics
+        if (show.downloads) {
+            metadata.push(`DOWNLOADS: ${show.downloads.toLocaleString()}`);
         }
+
+        const metadataText = metadata.join('\n');
+
+        return `You are an intelligent content analyst using the WFGY framework. Evaluate this video collection for inclusion in a 24/7 streaming TV schedule targeting millennial audiences.
+
+CONTENT METADATA:
+${metadataText}
+
+Your task is to determine if this content is suitable for programming. Consider ALL factors that matter:
+
+- Language accessibility (is it primarily in English?)
+- Entertainment value and engagement potential
+- Content appropriateness for streaming
+- Millennial appeal and cultural relevance
+- Production quality and watchability
+- Any content that should be excluded (explicit material, copyrighted issues, etc.)
+- Overall suitability for a curated TV schedule
+
+Rate this content on a scale of 1-10 where:
+1 = EXCELLENT for streaming - highly entertaining, perfect fit
+5 = MODERATE appeal - some potential but questionable
+10 = POOR fit - not suitable for programming
+
+Make intelligent decisions based on the content metadata. You can reject content for any valid reason including language barriers, quality issues, or inappropriate material.
+
+Respond with only a single number between 1-10.`;
     }
 
     /**
-     * Calculate rolling mean for lambda determination
-     */
-    calculateRollingMean() {
-        const window = Math.min(this.state.iteration, 5);
-        const recentDeltas = this.state.memory.size > 0 ?
-            Array.from(this.state.memory.values()).slice(-window) :
-            [this.state.currentDelta];
-        return recentDeltas.reduce((sum, delta) => sum + delta, 0) / recentDeltas.length;
-    }
-
-    /**
-     * Check for conflicting anchors
-     */
-    hasConflictingAnchors() {
-        const anchorValues = Array.from(this.state.anchors.values());
-        const positives = anchorValues.filter(v => v > 0).length;
-        const negatives = anchorValues.filter(v => v < 0).length;
-        return positives > 0 && negatives > 0;
-    }
-
-    /**
-     * Evaluate anchor for a given show
-     */
-    evaluateAnchor(showIdentifier, anchorType) {
-        // Simple anchor evaluation - can be enhanced
-        switch (anchorType) {
-            case 'popularity':
-                return this.state.memory.get(showIdentifier)?.downloads > 100000 ? 1 : -1;
-            case 'age':
-                const year = parseInt(this.state.memory.get(showIdentifier)?.date?.split('-')[0] || '2020');
-                return year >= 1990 && year <= 2005 ? 1 : -1;
-            case 'category':
-                const category = this.state.memory.get(showIdentifier)?.category || '';
-                return category.includes('gaming') || category.includes('internet') ? 1 : -1;
-            default:
-                return 0;
-        }
-    }
-
-    /**
-     * Apply BBAM (Balanced Blend And Mix) algorithm
-     */
-    applyBBAM(delta) {
-        const W_c_norm = Math.tanh(this.state.W_c / this.config.theta_c);
-        const alpha_blend_final = Math.max(0.35, Math.min(0.65,
-            0.50 + this.config.k_c * W_c_norm));
-
-        // Blend with reference (uniform distribution)
-        const a_ref = 0.5; // uniform reference
-        return alpha_blend_final * delta + (1 - alpha_blend_final) * a_ref;
-    }
-
-    /**
-     * Make AI-powered content analysis using provided framework
+     * Make AI-powered content analysis using z.ai API
      */
     async analyzeWithAI(show) {
         if (!this.config.apiToken) {
-            throw new Error('API token is required - no fallback to rule-based analysis allowed');
+            return this.analyzeWithoutAI(show);
         }
-
-        console.log(`🤖 Analyzing with GLM-4.5-air: ${show.title}`);
 
         try {
             const prompt = this.createAIPrompt(show);
@@ -296,194 +248,30 @@ class WFGYVideoProcessor {
             }
 
             const data = await response.json();
-            const message = data.choices[0].message;
+            const aiResponse = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) ? data.choices[0].message.content.trim() : (typeof data === 'string' ? data.trim() : '');
 
-            // Check both reasoning_content and content fields for the rating
-            const reasoningContent = message.reasoning_content || '';
-            const regularContent = message.content || '';
+            // Extract rating from AI response (expect a single number 1-10)
+            const match = aiResponse.match(/\b(?:10|[1-9])\b/);
+            const rating = match ? parseInt(match[0], 10) : 5;
 
-            // Look for rating in the content field first (where GLM-4.5-air puts the final answer)
-            let numberMatch = regularContent.match(/^\s*([0-9]|10)\s*$/);
-            let rating = numberMatch ? parseInt(numberMatch[0]) : null;
+            // Directly use the AI's numeric output as the basis for delta
+            const delta_s = (rating - 1) / 9; // Normalize to 0-1
+            const zone = this.getZone(delta_s);
 
-            // If not found in content field, look in reasoning_content for the final rating
-            if (rating === null) {
-                // Look for patterns like "So, I'll go with 2" or "rating: 3" near the end
-                const finalMatch = reasoningContent.match(/(?:go with|rating[^:]*:?\s*|final[^:]*:?\s*|answer[^:]*:?\s*)\s*([0-9]|10)\b/gi);
-                if (finalMatch) {
-                    // Extract the number from the last match
-                    const lastMatch = finalMatch[finalMatch.length - 1];
-                    const extractedNumber = lastMatch.match(/\b([0-9]|10)\b/);
-                    if (extractedNumber) {
-                        rating = parseInt(extractedNumber[0]);
-                    }
-                }
-            }
+            console.log(`✅ AI analysis complete: ${show.title} - Rating: ${rating}/10, Δ: ${delta_s.toFixed(3)}, Zone: ${zone}`);
 
-            // Fallback: look for any number if specific patterns don't work
-            if (rating === null) {
-                const allNumbers = (reasoningContent + regularContent).match(/\b([0-9]|10)\b/g);
-                if (allNumbers && allNumbers.length > 0) {
-                    // Use the last number found (likely to be the final answer)
-                    rating = parseInt(allNumbers[allNumbers.length - 1]);
-                }
-            }
-
-            // Default if still not found
-            if (rating === null) {
-                rating = 5;
-            }
-
-            const delta_s = rating / 10;
-
-            // Quick zone calculation
-            let zone;
-            if (delta_s < 0.40) zone = 'safe';
-            else if (delta_s < 0.60) zone = 'transit';
-            else if (delta_s < 0.85) zone = 'risk';
-            else zone = 'danger';
-
-            const result = {
-                delta_s: delta_s,
-                zone: zone,
-                entities: [],
-                relations: [],
-                constraints: [],
-                confidence: rating <= 3 ? 9 : (rating <= 6 ? 7 : 5),
-                reasoning: `AI analysis: ${show.title} - Rating ${rating}/10`
+            return {
+                delta_s,
+                zone,
+                rating,
+                confidence: null,
+                reasoning: `Rating ${rating}/10`
             };
-
-            console.log(`✅ AI analysis complete: ${show.title} - Δ: ${result.delta_s.toFixed(3)}, Zone: ${result.zone}`);
-
-            return result;
 
         } catch (error) {
             console.error(`❌ AI analysis failed for ${show.title}:`, error.message);
             throw new Error(`AI analysis required and failed: ${error.message}`);
         }
-    }
-
-    /**
-     * Create AI prompt for content analysis with full metadata
-     */
-    createAIPrompt(show) {
-        // Build comprehensive metadata string
-        const metadata = [];
-
-        // Basic info
-        if (show.title) metadata.push(`TITLE: ${show.title}`);
-        if (show.description) metadata.push(`DESCRIPTION: ${show.description}`);
-        if (show.category) metadata.push(`CATEGORY: ${show.category}`);
-
-        // Genres and themes
-        if (show.genres && show.genres.length > 0) {
-            metadata.push(`GENRES: ${show.genres.join(', ')}`);
-        }
-        if (show.keywords && show.keywords.length > 0) {
-            metadata.push(`KEYWORDS: ${show.keywords.join(', ')}`);
-        }
-        if (show.themes && show.themes.length > 0) {
-            metadata.push(`THEMES: ${show.themes.join(', ')}`);
-        }
-
-        // Temporal info
-        if (show.year || show.date) {
-            metadata.push(`YEAR: ${show.year || show.date}`);
-        }
-        if (show.decade) metadata.push(`DECADE: ${show.decade}`);
-        if (show.era) metadata.push(`ERA: ${show.era}`);
-
-        // Ratings and popularity
-        if (show.rating) metadata.push(`RATING: ${show.rating}/10`);
-        if (show.imdb_rating) metadata.push(`IMDB: ${show.imdb_rating}/10`);
-        if (show.views || show.downloads) {
-            metadata.push(`POPULARITY: ${show.views || show.downloads}`);
-        }
-        if (show.maturity) metadata.push(`MATURITY: ${show.maturity}`);
-
-        // Production info
-        if (show.studio || show.network) {
-            metadata.push(`PRODUCED BY: ${show.studio || show.network}`);
-        }
-        if (show.director) metadata.push(`DIRECTOR: ${show.director}`);
-        if (show.cast && show.cast.length > 0) {
-            metadata.push(`CAST: ${show.cast.slice(0, 3).join(', ')}`);
-        }
-
-        // Additional context
-        if (show.platform) metadata.push(`PLATFORM: ${show.platform}`);
-        if (show.language) metadata.push(`LANGUAGE: ${show.language}`);
-        if (show.country) metadata.push(`COUNTRY: ${show.country}`);
-        if (show.duration) metadata.push(`DURATION: ${show.duration}`);
-
-        // Cultural context
-        if (show.cultural_impact) metadata.push(`CULTURAL IMPACT: ${show.cultural_impact}`);
-        if (show.nostalgia_factor) metadata.push(`NOSTALGIA: ${show.nostalgia_factor}/10`);
-        if (show.anti_corporate) metadata.push(`ANTI-CORPORATE: ${show.anti_corporate}`);
-
-        return `RATE 0-10 FOR MILLENNIAL APPEAL (0=extremely cool, 10=completely lame):
-
-${metadata.join('\n')}
-
-MILLENNIAL PREFERENCES:
-• HIGH APPEAL (0-3): 90s nostalgia, gaming culture, internet comedy, indie content, anti-corporate, cult classics, alternative media, early internet, retro tech
-• MEDIUM APPEAL (4-6): Some mainstream appeal, balanced content, moderate nostalgia
-• LOW APPEAL (7-10): Corporate media, educational content, religious programming, family-friendly, mainstream entertainment, Disney content
-
-RESPOND WITH ONLY A SINGLE NUMBER 0-10`;
-    }
-
-    /**
-     * Parse AI response - extract 0-10 rating and convert to delta
-     */
-    parseAIResponse(response, show) {
-        // Look for numbers between 0-10
-        const numberMatch = response.match(/\b([0-9]|10)\b/);
-        let rating = 5; // default
-
-        if (numberMatch) {
-            rating = parseInt(numberMatch[0]);
-        }
-
-        // Convert 0-10 rating to 0-1 delta (inverse scale)
-        // 0 = best appeal, 10 = worst appeal
-        const delta_s = Math.max(0, Math.min(1, rating / 10));
-
-        // Determine zone based on delta
-        let zone;
-        if (delta_s < 0.40) zone = 'safe';
-        else if (delta_s < 0.60) zone = 'transit';
-        else if (delta_s < 0.85) zone = 'risk';
-        else zone = 'danger';
-
-        // Calculate confidence based on rating
-        let confidence = 5;
-        if (rating <= 3) confidence = 9;
-        else if (rating <= 5) confidence = 7;
-        else if (rating <= 7) confidence = 5;
-        else confidence = 3;
-
-        // Generate reasoning based on rating
-        let reasoning = `AI analysis: ${show.title} `;
-        if (rating <= 3) {
-            reasoning += 'has very high millennial appeal';
-        } else if (rating <= 6) {
-            reasoning += 'has good millennial appeal';
-        } else if (rating <= 8) {
-            reasoning += 'has moderate millennial appeal';
-        } else {
-            reasoning += 'has limited millennial appeal';
-        }
-
-        return {
-            delta_s: delta_s,
-            zone: zone,
-            entities: [],
-            relations: [],
-            constraints: [],
-            confidence: confidence,
-            reasoning: reasoning
-        };
     }
 
     /**
@@ -495,9 +283,9 @@ RESPOND WITH ONLY A SINGLE NUMBER 0-10`;
         const category = (show.category || '').toLowerCase();
         const text = `${title} ${description} ${category}`;
 
-        // Positive indicators
-        const positive = ['90s', 'gaming', 'internet', 'anime', 'indie', 'cult', 'retro', 'alternative'];
-        const negative = ['disney', 'corporate', 'educational', 'religious', 'mainstream', 'family'];
+        // Simple rule-based scoring
+        const positive = ['funny', 'comedy', 'humor', 'entertainment', 'meme', 'viral', 'trending', 'popular'];
+        const negative = ['boring', 'dull', 'serious', 'educational', 'documentary'];
 
         let score = 0;
         positive.forEach(term => {
@@ -521,22 +309,22 @@ RESPOND WITH ONLY A SINGLE NUMBER 0-10`;
     }
 
     /**
-     * Process a single video show
+     * Process a single video show - AI makes all filtering decisions
      */
     async processShow(show) {
         const showId = show.identifier || show.title;
 
         try {
-            // Analyze content
+            // Analyze content with AI - AI returns a numeric rating which we use directly
             const analysis = await this.analyzeWithAI(show);
 
             // Update WFGY state
             this.updateWFGYState(analysis.delta_s, showId);
 
-            // Apply BBAM
-            const adjustedDelta = this.applyBBAM(analysis.delta_s);
+            // Use AI output number directly (no BBAM adjustment)
+            const adjustedDelta = analysis.delta_s;
 
-            // Memory recording
+            // Memory recording (keep high-rated items)
             if (analysis.delta_s > 0.60) {
                 this.state.memory.set(showId, {
                     ...show,
@@ -546,7 +334,7 @@ RESPOND WITH ONLY A SINGLE NUMBER 0-10`;
                 });
             }
 
-            // Decision making
+            // Decision based solely on delta and zone
             const passes = this.evaluateDecision(adjustedDelta, analysis);
 
             if (passes) {
@@ -565,7 +353,7 @@ RESPOND WITH ONLY A SINGLE NUMBER 0-10`;
                     ...show,
                     wfgy_delta: adjustedDelta,
                     wfgy_zone: analysis.zone,
-                    wfgy_reasoning: `Rejected: ${analysis.reasoning}`
+                    wfgy_reasoning: `AI rejected: ${analysis.reasoning}`
                 });
                 this.stats.totalRejected++;
             }
@@ -603,24 +391,7 @@ RESPOND WITH ONLY A SINGLE NUMBER 0-10`;
             return false;
         }
 
-        // Confidence threshold
-        if (analysis.confidence < 3) {
-            return false;
-        }
-
-        // Bridge rule: allow if delta decreases and W_c < threshold
-        if (this.state.iteration > 1) {
-            const deltaDecrease = this.state.previousDelta > this.state.currentDelta;
-            const W_c_threshold_ok = Math.abs(this.state.W_c) < (0.5 * this.config.theta_c);
-
-            if (deltaDecrease && W_c_threshold_ok) {
-                return true;
-            }
-        }
-
-        // Default acceptance criteria
-        return analysis.zone === 'safe' ||
-               (analysis.zone === 'transit' && analysis.confidence >= 5);
+        return true;
     }
 
     /**
@@ -629,7 +400,7 @@ RESPOND WITH ONLY A SINGLE NUMBER 0-10`;
     async processAllShows(shows) {
         console.log('🎬 WFGY Video Content Processor Starting...');
         console.log(`📊 Processing ${shows.length} shows with threshold ${this.config.B_c}`);
-        console.log(`🧠 AI Analysis: ${this.config.apiToken ? 'GLM-4.5-air ONLY (No fallback)' : 'ERROR: No API token'}`);
+        console.log(`🧠 AI Analysis: ${this.config.apiToken ? 'Enabled' : 'Disabled (Rule-based fallback)'}`);
         console.log('');
 
         const results = [];
@@ -653,125 +424,113 @@ RESPOND WITH ONLY A SINGLE NUMBER 0-10`;
                 }
             });
 
-            // Progress update
-            const processed = Math.min((i + 1) * this.config.batchSize, shows.length);
-            const accepted = this.stats.totalAccepted;
-            const rejected = this.stats.totalRejected;
-            const acceptanceRate = ((accepted / processed) * 100).toFixed(1);
+            // Update progress
+            this.state.progress = Math.min(1.0, this.config.zeta_min + (i + 1) / batches * (1 - this.config.zeta_min));
 
-            console.log(`   ✅ Processed: ${processed} | 🎯 Accepted: ${accepted} (${acceptanceRate}%) | ❌ Rejected: ${rejected}`);
-            console.log(`   📈 Current state: λ=${this.state.lambda} | Δ=${this.state.currentDelta.toFixed(3)} | W_c=${this.state.W_c.toFixed(3)}`);
-            console.log('');
+            // Brief pause between batches to avoid API rate limits
+            if (i < batches - 1) {
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
         }
 
-        return results;
-    }
-
-    /**
-     * Generate final report
-     */
-    generateReport() {
-        console.log('🎬 WFGY Video Processing Report');
-        console.log('=' .repeat(50));
-
-        console.log(`📊 FINAL STATISTICS:`);
-        console.log(`   Total Processed: ${this.stats.totalProcessed}`);
-        console.log(`   Accepted: ${this.stats.totalAccepted} (${((this.stats.totalAccepted / this.stats.totalProcessed) * 100).toFixed(1)}%)`);
-        console.log(`   Rejected: ${this.stats.totalRejected} (${((this.stats.totalRejected / this.stats.totalProcessed) * 100).toFixed(1)}%)`);
-        console.log(`   Average Delta: ${this.stats.averageDelta.toFixed(3)}`);
-        console.log(`   Anchor Flips: ${this.stats.anchorFlips}`);
-        console.log(`   Final Lambda: ${this.state.lambda}`);
-        console.log(`   Final W_c: ${this.state.W_c.toFixed(3)}`);
         console.log('');
+        console.log('📊 Processing Summary:');
+        console.log(`   Total processed: ${this.stats.totalProcessed.toLocaleString()}`);
+        console.log(`   Accepted: ${this.stats.totalAccepted.toLocaleString()}`);
+        console.log(`   Rejected: ${this.stats.totalRejected.toLocaleString()}`);
+        console.log(`   Acceptance rate: ${(this.stats.totalAccepted / this.stats.totalProcessed * 100).toFixed(1)}%`);
+        console.log(`   Average delta: ${this.stats.averageDelta.toFixed(3)}`);
+        console.log(`   Anchor flips: ${this.stats.anchorFlips}`);
 
-        console.log(`🎯 TOP ACCEPTED CONTENT:`);
-        this.state.filtered
-            .sort((a, b) => a.wfgy_delta - b.wfgy_delta)
-            .slice(0, 10)
-            .forEach((show, index) => {
-                console.log(`${index + 1}. ${show.title}`);
-                console.log(`   Δ: ${show.wfgy_delta.toFixed(3)} | Zone: ${show.wfgy_zone} | λ: ${show.wfgy_lambda}`);
-                console.log(`   ${show.wfgy_reasoning}`);
-                console.log('');
-            });
-
-        console.log(`❌ SAMPLE REJECTIONS:`);
-        this.state.rejected
-            .sort((a, b) => b.wfgy_delta - a.wfgy_delta)
-            .slice(0, 5)
-            .forEach((show, index) => {
-                console.log(`${index + 1}. ${show.title}`);
-                console.log(`   Δ: ${show.wfgy_delta.toFixed(3)} | ${show.wfgy_reasoning}`);
-                console.log('');
-            });
-
-        return {
-            config: this.config,
-            stats: this.stats,
-            state: this.state,
-            filtered: this.state.filtered,
-            rejected: this.state.rejected
-        };
-    }
-
-    /**
-     * Save results to file
-     */
-    saveResults(filename = 'wfgy_processed_results.json') {
-        const results = this.generateReport();
-        fs.writeFileSync(filename, JSON.stringify(results, null, 2));
-        console.log(`💾 Results saved to ${filename}`);
         return results;
     }
 
     /**
-     * Initialize anchors based on data characteristics
+     * Save results to files
      */
-    initializeAnchors(shows) {
-        // Sample shows to determine anchor types
-        const sample = shows.slice(0, Math.min(100, shows.length));
+    saveResults() {
+        const outputFile = 'videos_stream_filtered.json';
 
-        // Initialize common anchors
-        this.state.anchors.set('popularity', 0);
-        this.state.anchors.set('age', 0);
-        this.state.anchors.set('category', 0);
+        const outputData = {
+            generated: new Date().toISOString(),
+            wfgy_framework: "WFGY_Core_OneLine_v2.0",
+            total_collections: this.stats.totalProcessed,
+            filtered_collections: this.stats.totalAccepted,
+            filter_method: "AI-intelligent filtering (all decisions made by AI)",
+            ai_analysis: this.config.apiToken ? "enabled" : "disabled",
+            videos: this.state.filtered
+        };
 
-        console.log(`🔧 Initialized ${this.state.anchors.size} anchors for WFGY processing`);
+        console.log(`💾 Saving filtered data to ${outputFile}...`);
+        fs.writeFileSync(outputFile, JSON.stringify(outputData, null, 2));
+
+        // Calculate video statistics
+        let totalVideos = 0;
+        let mp4Videos = 0;
+        this.state.filtered.forEach(collection => {
+            if (collection.videoFiles) {
+                totalVideos += collection.videoFiles.length;
+                collection.videoFiles.forEach(file => {
+                    if (file.name && file.name.toLowerCase().endsWith('.mp4')) {
+                        mp4Videos++;
+                    }
+                });
+            }
+        });
+
+        console.log(`📊 Output statistics:`);
+        console.log(`   Collections: ${this.stats.totalAccepted.toLocaleString()}`);
+        console.log(`   Total videos: ${totalVideos.toLocaleString()}`);
+        console.log(`   MP4 videos: ${mp4Videos.toLocaleString()}`);
+    }
+
+    /**
+     * Main processing function
+     */
+    async process() {
+        try {
+            console.log('🎬 WFGY Video Content Processor - Core OneLine v2.0');
+            console.log('=====================================================');
+            console.log(`📂 Loading video data from videos_stream.json...`);
+
+            if (!fs.existsSync('videos_stream.json')) {
+                throw new Error('Input file not found: videos_stream.json');
+            }
+
+            const data = JSON.parse(fs.readFileSync('videos_stream.json', 'utf8'));
+            const shows = data.videos;
+            console.log(`📁 Loaded ${shows.length} collections`);
+
+            // Initialize processor
+            const processor = new WFGYVideoProcessor({
+                threshold: 0.85,  // Critical threshold
+                apiToken: process.env.ANTHROPIC_AUTH_TOKEN,
+                batchSize: 3,     // Small batches for AI processing
+                timeout: 180000   // 3 minutes per request
+            });
+
+            // Initialize anchors
+            processor.initializeAnchors(shows);
+
+            // Process all shows
+            await processor.processAllShows(shows);
+
+            // Generate and save results
+            processor.saveResults();
+
+            console.log('🎉 WFGY Video Processing Complete!');
+
+        } catch (error) {
+            console.error('❌ Processing failed:', error.message);
+            process.exit(1);
+        }
     }
 }
 
 // Main execution
 async function main() {
-    try {
-        // Load video data
-        const videoData = JSON.parse(fs.readFileSync('videos_stream.json', 'utf8'));
-        const shows = videoData.videos || [];
-
-        console.log(`📚 Loaded ${shows.length} shows from videos_stream.json`);
-
-        // Initialize processor
-        const processor = new WFGYVideoProcessor({
-            threshold: 0.75,  // Critical threshold
-            apiToken: process.env.ANTHROPIC_AUTH_TOKEN,
-            batchSize: 5,
-            timeout: 120000
-        });
-
-        // Initialize anchors
-        processor.initializeAnchors(shows);
-
-        // Process all shows
-        await processor.processAllShows(shows);
-
-        // Generate and save results
-        processor.saveResults();
-
-        console.log('🎉 WFGY Video Processing Complete!');
-
-    } catch (error) {
-        console.error('❌ Processing failed:', error.message);
-        process.exit(1);
-    }
+    const processor = new WFGYVideoProcessor();
+    await processor.process();
 }
 
 // Export for module usage

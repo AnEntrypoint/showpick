@@ -109,13 +109,12 @@ ehthumbs.db
 Thumbs.db
 
 # Project-specific data files (we want to ignore the large JSON data)
-*.json
 !package.json
 !package-lock.json
 
-# Test results
-test_results.json
-wfgy_processed_results.json
+# Intermediate build files (not needed in git)
+massive_schedule/
+ogv_audio_list.json
 
 # Backup files
 *.bak
