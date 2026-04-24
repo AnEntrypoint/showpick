@@ -1,28 +1,18 @@
 {
-  "name": "wfgy-video-processor",
+  "name": "schedule-builder",
   "version": "1.0.0",
-  "description": "WFGY Core OneLine v2.0 Video Content Processor with Critical Threshold Filtering",
-  "main": "wfgy_video_processor.js",
+  "main": "build_schedule.js",
   "scripts": {
-    "stage1": "node wfgy_video_processor.js",
-    "stage2": "node build_schedule.js",
-    "build": "npm run stage2"
-  },
-  "keywords": [
-    "wfgy",
-    "video-processing",
-    "content-filtering",
-    "ai-analysis",
-    "threshold-filtering",
-    "node-fetch",
-    "builtin"
-  ],
-  "author": "WFGY Processor",
-  "license": "MIT",
-  "engines": {
-    "node": ">=18.0.0"
+    "preprocess": "node preprocess.js",
+    "build": "node build_schedule.js",
+    "full": "npm run preprocess && npm run build",
+    "deploy": "node deploy.js",
+    "full-deploy": "npm run preprocess && node deploy.js"
   },
   "dependencies": {
-    "zipson": "^0.2.12"
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
