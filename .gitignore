@@ -120,6 +120,7 @@ ogv_audio_list.json
 *.bak
 *.backup
 *.old
+.gm/
 .gm-stop-verified
 .plugkit-browser-profile/
 .plugkit-browser-profile-*/
