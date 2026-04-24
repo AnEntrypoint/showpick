@@ -4,9 +4,11 @@
 - `npm run preprocess` - Fetch shows from web and create videos_stream.json
 - `npm run build` - Build schedules from videos_stream.json
 - `npm run full` - Run preprocess then build
+- `npm run deploy` - Build and deploy today's schedule to ../247420/schedule.json
+- `npm run full-deploy` - Preprocess + deploy in one step
 
 ## Flow
-Web Search → preprocess.js → videos_stream.json → build_schedule.js → schedule_weeks/station_*/week_*.json
+Web Search → preprocess.js → videos_stream.json → build_schedule.js → schedule_weeks/station_*/week_*.json → deploy.js → ../247420/schedule.json
 
 ## Code Style
 - Pure Node.js, no TypeScript, no build tools
