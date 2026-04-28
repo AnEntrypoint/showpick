@@ -128,3 +128,6 @@ ogv_audio_list.json
 .code-search/
 .codeinsight
 *.stackdump
+dist/
+.codeinsight/
+rs-learn.db
