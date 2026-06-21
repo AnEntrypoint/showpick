@@ -23,6 +23,8 @@ jobs:
           node-version: '20'
       - name: Build with flatspace
         run: npx --yes flatspace@latest build
+      - name: Copy schedule to dist
+        run: cp -r schedule_weeks dist/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
