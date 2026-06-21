@@ -1,0 +1,23 @@
+id: home
+title: Home
+hero:
+  heading: "showpick"
+  subheading: "WFGY video content processor"
+  body: "AI-driven video filtering with the WFGY framework. the pipeline that picks what airs on the broadcast."
+  badges:
+    - { label: "video" }
+    - { label: "ai-curation" }
+    - { label: "web" }
+  ctas:
+    - { label: "GitHub", href: "https://github.com/AnEntrypoint/showpick", primary: true }
+    - { label: "247420", href: "https://247420.xyz" }
+features:
+  heading: "Why showpick"
+  items:
+    - { name: "video", desc: "flagship trait of showpick." }
+    - { name: "ai-curation", desc: "core capability of showpick." }
+quickstart:
+  heading: Quick start
+  lines:
+    - { kind: "cmt", text: "# source" }
+    - { kind: "cmd", text: "git clone https://github.com/AnEntrypoint/showpick.git" }

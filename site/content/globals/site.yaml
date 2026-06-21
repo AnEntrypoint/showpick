@@ -1,0 +1,16 @@
+title: "showpick"
+tagline: "WFGY video content processor"
+description: "AI-driven video filtering with the WFGY framework. the pipeline that picks what airs on the broadcast."
+repo: "https://github.com/AnEntrypoint/showpick"
+url: "https://anentrypoint.github.io/showpick"
+year: 2026
+keywords:
+  - "video"
+  - "ai-curation"
+  - "247420"
+  - "anentrypoint"
+accent_from: "#56d364"
+accent_to: "#79c0ff"
+glyph: "▶"
+code: "075"
+category: "web"

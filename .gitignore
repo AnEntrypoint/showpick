@@ -130,3 +130,7 @@ ogv_audio_list.json
 *.stackdump
 .gm/pw-sock-*/
 schedule_weeks/
+dist/
+.codeinsight/
+rs-learn.db
+>>>>>>> origin/master
