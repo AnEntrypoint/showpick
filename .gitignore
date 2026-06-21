@@ -129,3 +129,4 @@ ogv_audio_list.json
 .codeinsight
 *.stackdump
 .gm/pw-sock-*/
+schedule_weeks/
