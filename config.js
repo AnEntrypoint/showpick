@@ -41,11 +41,17 @@ const CONFIG = {
             'memes', 'viral', 'compilation', 'mashup', 'remix',
             'gaming', 'video game', 'machinima', 'let\'s play',
             'retro', 'vintage', 'classic', 'old', 'nostalgic',
-            'weird', 'bizarre', 'unusual', 'strange', 'odd'
+            'weird', 'bizarre', 'unusual', 'strange', 'odd',
+            'edgy', 'dark', 'shock', 'controversial', 'offensive'
         ],
         excludeKeywords: [
-            'porn', 'xxx', 'adult', 'explicit', 'sex', 'nude',
-            'hardcore', 'softcore', 'erotic', 'sexual', 'nsfw'
+            'porn', 'xxx', 'explicit', 'sex', 'nude',
+            'hardcore', 'softcore', 'erotic', 'sexual',
+            'kids', 'children', 'educational', 'preschool', 'toddler',
+            'pokemon', 'spongebob', 'looney tunes', 'tom and jerry',
+            'winnie pooh', 'sesame street', 'caillou', 'dora',
+            'bluey', 'paw patrol', 'peppa pig', 'baby shark',
+            'pg-13', 'g rated', 'rated g', 'all ages', 'family friendly'
         ]
     }
 };
