@@ -51,7 +51,10 @@ const CONFIG = {
             'pokemon', 'spongebob', 'looney tunes', 'tom and jerry',
             'winnie pooh', 'sesame street', 'caillou', 'dora',
             'bluey', 'paw patrol', 'peppa pig', 'baby shark',
-            'pg-13', 'g rated', 'rated g', 'all ages', 'family friendly'
+            'pg-13', 'g rated', 'rated g', 'all ages', 'family friendly',
+            'hitler', 'nazi', 'antisemitic', 'racist', 'hate speech',
+            'holocaust denial', 'white supremacy', 'kkk', 'neo-nazi',
+            'fascist', 'communism', 'extremist', 'terrorism'
         ]
     }
 };
