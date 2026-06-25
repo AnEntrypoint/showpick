@@ -38,3 +38,5 @@ Web Search → preprocess.js → videos_stream.json → build_schedule.js → sc
 - Rate limiting and retry logic
 - No collection or total limits
 - Integrated streaming-video-finder from pubvid repository
+
+@.gm/next-step.md

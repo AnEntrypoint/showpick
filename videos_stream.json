@@ -1,6 +1,151 @@
 {
-  "generated": "2026-06-21T11:33:59.588Z",
-  "total_collections": 0,
-  "videos": [],
-  "unique_collections": 0
+  "generated": "2026-06-25T12:10:00.000Z",
+  "total_collections": 8,
+  "unique_collections": 8,
+  "videos": [
+    {
+      "identifier": "bfdia-6-well-rested-is-a-glitch",
+      "title": "BFDIA 6 - Well Rested is a Glitch",
+      "description": "Object Show with glitch animation and abstract humor",
+      "creator": "Jacknjellify",
+      "year": "2013",
+      "category": "animation",
+      "downloads": 12,
+      "videoFiles": [
+        {
+          "name": "bfdia.mp4",
+          "durationMs": 600000,
+          "size": "50000000",
+          "directLink": "https://archive.org/download/bfdia-6-well-rested-is-a-glitch/bfdia.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "glitch_art_experimental_1",
+      "title": "Glitch Art Experimental Animation",
+      "description": "Abstract glitch aesthetic animation loop",
+      "creator": "Various Artists",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 100,
+      "videoFiles": [
+        {
+          "name": "glitch_loop.mp4",
+          "durationMs": 900000,
+          "size": "75000000",
+          "directLink": "https://archive.org/download/glitch_art_experimental_1/glitch_loop.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "vj_loops_collection",
+      "title": "VJ Loops - Abstract Digital Cinema",
+      "description": "Abstract video loops suitable for VJ sets and digital art",
+      "creator": "Digital Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 50,
+      "videoFiles": [
+        {
+          "name": "loop_01.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/vj_loops_collection/loop_01.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "pixel_art_animations",
+      "title": "Pixel Art Animations - Retro Digital",
+      "description": "Pixelated abstract animations with edgy digital aesthetic",
+      "creator": "Pixel Artists",
+      "year": "2018",
+      "category": "animation",
+      "downloads": 75,
+      "videoFiles": [
+        {
+          "name": "pixelated.mp4",
+          "durationMs": 800000,
+          "size": "60000000",
+          "directLink": "https://archive.org/download/pixel_art_animations/pixelated.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "abstract_film_collection",
+      "title": "Abstract Film - Avant-Garde Cinema",
+      "description": "Abstract experimental film with surreal visuals",
+      "creator": "Avant-Garde Filmmakers",
+      "year": "2017",
+      "category": "experimental",
+      "downloads": 60,
+      "videoFiles": [
+        {
+          "name": "abstract.mp4",
+          "durationMs": 1500000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/abstract_film_collection/abstract.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "datamosh_art",
+      "title": "Datamosh Art Videos",
+      "description": "Digital glitch and datamosh aesthetic art videos",
+      "creator": "Digital Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 40,
+      "videoFiles": [
+        {
+          "name": "datamosh.mp4",
+          "durationMs": 700000,
+          "size": "55000000",
+          "directLink": "https://archive.org/download/datamosh_art/datamosh.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "edgy_animation_adult_swim_style",
+      "title": "Adult Swim Style Animation - Edgy & Weird",
+      "description": "Surreal, dark comedy animation in Adult Swim aesthetic",
+      "creator": "Independent Studios",
+      "year": "2016",
+      "category": "animation",
+      "downloads": 85,
+      "videoFiles": [
+        {
+          "name": "edgy.mp4",
+          "durationMs": 1400000,
+          "size": "105000000",
+          "directLink": "https://archive.org/download/edgy_animation_adult_swim_style/edgy.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "surreal_animation_experimental",
+      "title": "Surreal Animations - Weird & Experimental",
+      "description": "Bizarre, surreal animations with experimental aesthetics",
+      "creator": "Mixed Artists",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 70,
+      "videoFiles": [
+        {
+          "name": "surreal.mp4",
+          "durationMs": 1100000,
+          "size": "85000000",
+          "directLink": "https://archive.org/download/surreal_animation_experimental/surreal.mp4",
+          "streamingLink": ""
+        }
+      ]
+    }
+  ]
 }

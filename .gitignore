@@ -134,3 +134,5 @@ dist/
 .codeinsight/
 rs-learn.db
 >>>>>>> origin/master
+.gm/browser-profile/
+.gm/browser-profile-*/
