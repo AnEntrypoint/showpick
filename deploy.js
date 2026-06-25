@@ -88,7 +88,10 @@ function buildFromPipeline() {
     execSync('node build_schedule.js', { cwd: __dirname, stdio: 'inherit' });
     const weekNum = getCurrentWeek();
     const today = DAYS[new Date().getDay()];
-    const weekFile = path.join(__dirname, 'schedule_weeks', 'station_1', `week_${weekNum}.json`);
+    let weekFile = path.join(__dirname, 'schedule_weeks', 'station_1', `week_${weekNum}.json`);
+    if (!fs.existsSync(weekFile)) {
+        weekFile = path.join(__dirname, 'schedule_weeks', 'station_1', 'week_1.json');
+    }
     if (!fs.existsSync(weekFile)) return null;
     const { v: lookup, s: slots } = JSON.parse(fs.readFileSync(weekFile, 'utf8'));
     const toSecs = t => {

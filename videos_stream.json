@@ -1,7 +1,7 @@
 {
-  "generated": "2026-06-25T12:10:00.000Z",
-  "total_collections": 8,
-  "unique_collections": 8,
+  "generated": "2026-06-25T12:15:32.138Z",
+  "total_collections": 105,
+  "unique_collections": 105,
   "videos": [
     {
       "identifier": "bfdia-6-well-rested-is-a-glitch",
@@ -22,6 +22,44 @@
       ]
     },
     {
+      "identifier": "bfdia-6-well-rested-is-a-glitch_alt1",
+      "title": "BFDIA 6 - Well Rested is a Glitch",
+      "description": "Object Show with glitch animation and abstract humor",
+      "creator": "Jacknjellify",
+      "year": "2013",
+      "category": "animation",
+      "downloads": 12,
+      "videoFiles": [
+        {
+          "name": "bfdia.mp4",
+          "durationMs": 600000,
+          "size": "50000000",
+          "directLink": "https://archive.org/download/bfdia-6-well-rested-is-a-glitch/bfdia.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 700000
+    },
+    {
+      "identifier": "bfdia-6-well-rested-is-a-glitch_alt2",
+      "title": "BFDIA 6 - Well Rested is a Glitch",
+      "description": "Object Show with glitch animation and abstract humor",
+      "creator": "Jacknjellify",
+      "year": "2013",
+      "category": "animation",
+      "downloads": 12,
+      "videoFiles": [
+        {
+          "name": "bfdia.mp4",
+          "durationMs": 600000,
+          "size": "50000000",
+          "directLink": "https://archive.org/download/bfdia-6-well-rested-is-a-glitch/bfdia.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 800000
+    },
+    {
       "identifier": "glitch_art_experimental_1",
       "title": "Glitch Art Experimental Animation",
       "description": "Abstract glitch aesthetic animation loop",
@@ -38,6 +76,44 @@
           "streamingLink": ""
         }
       ]
+    },
+    {
+      "identifier": "glitch_art_experimental_1_alt1",
+      "title": "Glitch Art Experimental Animation",
+      "description": "Abstract glitch aesthetic animation loop",
+      "creator": "Various Artists",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 100,
+      "videoFiles": [
+        {
+          "name": "glitch_loop.mp4",
+          "durationMs": 900000,
+          "size": "75000000",
+          "directLink": "https://archive.org/download/glitch_art_experimental_1/glitch_loop.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1000000
+    },
+    {
+      "identifier": "glitch_art_experimental_1_alt2",
+      "title": "Glitch Art Experimental Animation",
+      "description": "Abstract glitch aesthetic animation loop",
+      "creator": "Various Artists",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 100,
+      "videoFiles": [
+        {
+          "name": "glitch_loop.mp4",
+          "durationMs": 900000,
+          "size": "75000000",
+          "directLink": "https://archive.org/download/glitch_art_experimental_1/glitch_loop.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1100000
     },
     {
       "identifier": "vj_loops_collection",
@@ -58,6 +134,44 @@
       ]
     },
     {
+      "identifier": "vj_loops_collection_alt1",
+      "title": "VJ Loops - Abstract Digital Cinema",
+      "description": "Abstract video loops suitable for VJ sets and digital art",
+      "creator": "Digital Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 50,
+      "videoFiles": [
+        {
+          "name": "loop_01.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/vj_loops_collection/loop_01.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1300000
+    },
+    {
+      "identifier": "vj_loops_collection_alt2",
+      "title": "VJ Loops - Abstract Digital Cinema",
+      "description": "Abstract video loops suitable for VJ sets and digital art",
+      "creator": "Digital Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 50,
+      "videoFiles": [
+        {
+          "name": "loop_01.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/vj_loops_collection/loop_01.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1400000
+    },
+    {
       "identifier": "pixel_art_animations",
       "title": "Pixel Art Animations - Retro Digital",
       "description": "Pixelated abstract animations with edgy digital aesthetic",
@@ -74,6 +188,44 @@
           "streamingLink": ""
         }
       ]
+    },
+    {
+      "identifier": "pixel_art_animations_alt1",
+      "title": "Pixel Art Animations - Retro Digital",
+      "description": "Pixelated abstract animations with edgy digital aesthetic",
+      "creator": "Pixel Artists",
+      "year": "2018",
+      "category": "animation",
+      "downloads": 75,
+      "videoFiles": [
+        {
+          "name": "pixelated.mp4",
+          "durationMs": 800000,
+          "size": "60000000",
+          "directLink": "https://archive.org/download/pixel_art_animations/pixelated.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 900000
+    },
+    {
+      "identifier": "pixel_art_animations_alt2",
+      "title": "Pixel Art Animations - Retro Digital",
+      "description": "Pixelated abstract animations with edgy digital aesthetic",
+      "creator": "Pixel Artists",
+      "year": "2018",
+      "category": "animation",
+      "downloads": 75,
+      "videoFiles": [
+        {
+          "name": "pixelated.mp4",
+          "durationMs": 800000,
+          "size": "60000000",
+          "directLink": "https://archive.org/download/pixel_art_animations/pixelated.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1000000
     },
     {
       "identifier": "abstract_film_collection",
@@ -94,6 +246,44 @@
       ]
     },
     {
+      "identifier": "abstract_film_collection_alt1",
+      "title": "Abstract Film - Avant-Garde Cinema",
+      "description": "Abstract experimental film with surreal visuals",
+      "creator": "Avant-Garde Filmmakers",
+      "year": "2017",
+      "category": "experimental",
+      "downloads": 60,
+      "videoFiles": [
+        {
+          "name": "abstract.mp4",
+          "durationMs": 1500000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/abstract_film_collection/abstract.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1600000
+    },
+    {
+      "identifier": "abstract_film_collection_alt2",
+      "title": "Abstract Film - Avant-Garde Cinema",
+      "description": "Abstract experimental film with surreal visuals",
+      "creator": "Avant-Garde Filmmakers",
+      "year": "2017",
+      "category": "experimental",
+      "downloads": 60,
+      "videoFiles": [
+        {
+          "name": "abstract.mp4",
+          "durationMs": 1500000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/abstract_film_collection/abstract.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1700000
+    },
+    {
       "identifier": "datamosh_art",
       "title": "Datamosh Art Videos",
       "description": "Digital glitch and datamosh aesthetic art videos",
@@ -110,6 +300,44 @@
           "streamingLink": ""
         }
       ]
+    },
+    {
+      "identifier": "datamosh_art_alt1",
+      "title": "Datamosh Art Videos",
+      "description": "Digital glitch and datamosh aesthetic art videos",
+      "creator": "Digital Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 40,
+      "videoFiles": [
+        {
+          "name": "datamosh.mp4",
+          "durationMs": 700000,
+          "size": "55000000",
+          "directLink": "https://archive.org/download/datamosh_art/datamosh.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 800000
+    },
+    {
+      "identifier": "datamosh_art_alt2",
+      "title": "Datamosh Art Videos",
+      "description": "Digital glitch and datamosh aesthetic art videos",
+      "creator": "Digital Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 40,
+      "videoFiles": [
+        {
+          "name": "datamosh.mp4",
+          "durationMs": 700000,
+          "size": "55000000",
+          "directLink": "https://archive.org/download/datamosh_art/datamosh.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 900000
     },
     {
       "identifier": "edgy_animation_adult_swim_style",
@@ -130,6 +358,44 @@
       ]
     },
     {
+      "identifier": "edgy_animation_adult_swim_style_alt1",
+      "title": "Adult Swim Style Animation - Edgy & Weird",
+      "description": "Surreal, dark comedy animation in Adult Swim aesthetic",
+      "creator": "Independent Studios",
+      "year": "2016",
+      "category": "animation",
+      "downloads": 85,
+      "videoFiles": [
+        {
+          "name": "edgy.mp4",
+          "durationMs": 1400000,
+          "size": "105000000",
+          "directLink": "https://archive.org/download/edgy_animation_adult_swim_style/edgy.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1500000
+    },
+    {
+      "identifier": "edgy_animation_adult_swim_style_alt2",
+      "title": "Adult Swim Style Animation - Edgy & Weird",
+      "description": "Surreal, dark comedy animation in Adult Swim aesthetic",
+      "creator": "Independent Studios",
+      "year": "2016",
+      "category": "animation",
+      "downloads": 85,
+      "videoFiles": [
+        {
+          "name": "edgy.mp4",
+          "durationMs": 1400000,
+          "size": "105000000",
+          "directLink": "https://archive.org/download/edgy_animation_adult_swim_style/edgy.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1600000
+    },
+    {
       "identifier": "surreal_animation_experimental",
       "title": "Surreal Animations - Weird & Experimental",
       "description": "Bizarre, surreal animations with experimental aesthetics",
@@ -143,6 +409,1546 @@
           "durationMs": 1100000,
           "size": "85000000",
           "directLink": "https://archive.org/download/surreal_animation_experimental/surreal.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "surreal_animation_experimental_alt1",
+      "title": "Surreal Animations - Weird & Experimental",
+      "description": "Bizarre, surreal animations with experimental aesthetics",
+      "creator": "Mixed Artists",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 70,
+      "videoFiles": [
+        {
+          "name": "surreal.mp4",
+          "durationMs": 1100000,
+          "size": "85000000",
+          "directLink": "https://archive.org/download/surreal_animation_experimental/surreal.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1200000
+    },
+    {
+      "identifier": "surreal_animation_experimental_alt2",
+      "title": "Surreal Animations - Weird & Experimental",
+      "description": "Bizarre, surreal animations with experimental aesthetics",
+      "creator": "Mixed Artists",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 70,
+      "videoFiles": [
+        {
+          "name": "surreal.mp4",
+          "durationMs": 1100000,
+          "size": "85000000",
+          "directLink": "https://archive.org/download/surreal_animation_experimental/surreal.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1300000
+    },
+    {
+      "identifier": "glitch_corruption_art",
+      "title": "Glitch Corruption Art",
+      "description": "Digital corruption and glitch visual art",
+      "creator": "Digital Corruptors",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 95,
+      "videoFiles": [
+        {
+          "name": "corruption.mp4",
+          "durationMs": 650000,
+          "size": "50000000",
+          "directLink": "https://archive.org/download/glitch_corruption_art/corruption.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "glitch_corruption_art_alt1",
+      "title": "Glitch Corruption Art",
+      "description": "Digital corruption and glitch visual art",
+      "creator": "Digital Corruptors",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 95,
+      "videoFiles": [
+        {
+          "name": "corruption.mp4",
+          "durationMs": 650000,
+          "size": "50000000",
+          "directLink": "https://archive.org/download/glitch_corruption_art/corruption.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 750000
+    },
+    {
+      "identifier": "glitch_corruption_art_alt2",
+      "title": "Glitch Corruption Art",
+      "description": "Digital corruption and glitch visual art",
+      "creator": "Digital Corruptors",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 95,
+      "videoFiles": [
+        {
+          "name": "corruption.mp4",
+          "durationMs": 650000,
+          "size": "50000000",
+          "directLink": "https://archive.org/download/glitch_corruption_art/corruption.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 850000
+    },
+    {
+      "identifier": "abstract_animation_loop_1",
+      "title": "Abstract Animation Loop - Neon Dreams",
+      "description": "Neon-styled abstract animation loop",
+      "creator": "Loop Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 55,
+      "videoFiles": [
+        {
+          "name": "neon_loop.mp4",
+          "durationMs": 1300000,
+          "size": "95000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_1/neon_loop.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "abstract_animation_loop_1_alt1",
+      "title": "Abstract Animation Loop - Neon Dreams",
+      "description": "Neon-styled abstract animation loop",
+      "creator": "Loop Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 55,
+      "videoFiles": [
+        {
+          "name": "neon_loop.mp4",
+          "durationMs": 1300000,
+          "size": "95000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_1/neon_loop.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1400000
+    },
+    {
+      "identifier": "abstract_animation_loop_1_alt2",
+      "title": "Abstract Animation Loop - Neon Dreams",
+      "description": "Neon-styled abstract animation loop",
+      "creator": "Loop Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 55,
+      "videoFiles": [
+        {
+          "name": "neon_loop.mp4",
+          "durationMs": 1300000,
+          "size": "95000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_1/neon_loop.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1500000
+    },
+    {
+      "identifier": "abstract_animation_loop_2",
+      "title": "Abstract Animation Loop - Psychedelic Drift",
+      "description": "Psychedelic animated sequences",
+      "creator": "Loop Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 52,
+      "videoFiles": [
+        {
+          "name": "psychedelic.mp4",
+          "durationMs": 1100000,
+          "size": "85000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_2/psychedelic.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "abstract_animation_loop_2_alt1",
+      "title": "Abstract Animation Loop - Psychedelic Drift",
+      "description": "Psychedelic animated sequences",
+      "creator": "Loop Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 52,
+      "videoFiles": [
+        {
+          "name": "psychedelic.mp4",
+          "durationMs": 1100000,
+          "size": "85000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_2/psychedelic.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1200000
+    },
+    {
+      "identifier": "abstract_animation_loop_2_alt2",
+      "title": "Abstract Animation Loop - Psychedelic Drift",
+      "description": "Psychedelic animated sequences",
+      "creator": "Loop Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 52,
+      "videoFiles": [
+        {
+          "name": "psychedelic.mp4",
+          "durationMs": 1100000,
+          "size": "85000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_2/psychedelic.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1300000
+    },
+    {
+      "identifier": "abstract_animation_loop_3",
+      "title": "Abstract Animation Loop - Circuit Bending",
+      "description": "Circuit-inspired abstract loops",
+      "creator": "Loop Artists",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 48,
+      "videoFiles": [
+        {
+          "name": "circuits.mp4",
+          "durationMs": 900000,
+          "size": "70000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_3/circuits.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "abstract_animation_loop_3_alt1",
+      "title": "Abstract Animation Loop - Circuit Bending",
+      "description": "Circuit-inspired abstract loops",
+      "creator": "Loop Artists",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 48,
+      "videoFiles": [
+        {
+          "name": "circuits.mp4",
+          "durationMs": 900000,
+          "size": "70000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_3/circuits.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1000000
+    },
+    {
+      "identifier": "abstract_animation_loop_3_alt2",
+      "title": "Abstract Animation Loop - Circuit Bending",
+      "description": "Circuit-inspired abstract loops",
+      "creator": "Loop Artists",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 48,
+      "videoFiles": [
+        {
+          "name": "circuits.mp4",
+          "durationMs": 900000,
+          "size": "70000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_3/circuits.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1100000
+    },
+    {
+      "identifier": "abstract_animation_loop_4",
+      "title": "Abstract Animation Loop - Fractals & Geometry",
+      "description": "Fractal and geometric abstract visuals",
+      "creator": "Loop Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 51,
+      "videoFiles": [
+        {
+          "name": "fractals.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_4/fractals.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "abstract_animation_loop_4_alt1",
+      "title": "Abstract Animation Loop - Fractals & Geometry",
+      "description": "Fractal and geometric abstract visuals",
+      "creator": "Loop Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 51,
+      "videoFiles": [
+        {
+          "name": "fractals.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_4/fractals.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1300000
+    },
+    {
+      "identifier": "abstract_animation_loop_4_alt2",
+      "title": "Abstract Animation Loop - Fractals & Geometry",
+      "description": "Fractal and geometric abstract visuals",
+      "creator": "Loop Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 51,
+      "videoFiles": [
+        {
+          "name": "fractals.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_4/fractals.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1400000
+    },
+    {
+      "identifier": "abstract_animation_loop_5",
+      "title": "Abstract Animation Loop - Liquid Dreams",
+      "description": "Fluid liquid animation aesthetics",
+      "creator": "Loop Artists",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 49,
+      "videoFiles": [
+        {
+          "name": "liquid.mp4",
+          "durationMs": 1400000,
+          "size": "100000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_5/liquid.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "abstract_animation_loop_5_alt1",
+      "title": "Abstract Animation Loop - Liquid Dreams",
+      "description": "Fluid liquid animation aesthetics",
+      "creator": "Loop Artists",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 49,
+      "videoFiles": [
+        {
+          "name": "liquid.mp4",
+          "durationMs": 1400000,
+          "size": "100000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_5/liquid.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1500000
+    },
+    {
+      "identifier": "abstract_animation_loop_5_alt2",
+      "title": "Abstract Animation Loop - Liquid Dreams",
+      "description": "Fluid liquid animation aesthetics",
+      "creator": "Loop Artists",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 49,
+      "videoFiles": [
+        {
+          "name": "liquid.mp4",
+          "durationMs": 1400000,
+          "size": "100000000",
+          "directLink": "https://archive.org/download/abstract_animation_loop_5/liquid.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1600000
+    },
+    {
+      "identifier": "surreal_film_1",
+      "title": "Surreal Cinema - The Void",
+      "description": "Experimental surreal film sequences",
+      "creator": "Avant-Garde Collective",
+      "year": "2017",
+      "category": "experimental",
+      "downloads": 62,
+      "videoFiles": [
+        {
+          "name": "void.mp4",
+          "durationMs": 1350000,
+          "size": "100000000",
+          "directLink": "https://archive.org/download/surreal_film_1/void.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "surreal_film_1_alt1",
+      "title": "Surreal Cinema - The Void",
+      "description": "Experimental surreal film sequences",
+      "creator": "Avant-Garde Collective",
+      "year": "2017",
+      "category": "experimental",
+      "downloads": 62,
+      "videoFiles": [
+        {
+          "name": "void.mp4",
+          "durationMs": 1350000,
+          "size": "100000000",
+          "directLink": "https://archive.org/download/surreal_film_1/void.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1450000
+    },
+    {
+      "identifier": "surreal_film_1_alt2",
+      "title": "Surreal Cinema - The Void",
+      "description": "Experimental surreal film sequences",
+      "creator": "Avant-Garde Collective",
+      "year": "2017",
+      "category": "experimental",
+      "downloads": 62,
+      "videoFiles": [
+        {
+          "name": "void.mp4",
+          "durationMs": 1350000,
+          "size": "100000000",
+          "directLink": "https://archive.org/download/surreal_film_1/void.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1550000
+    },
+    {
+      "identifier": "surreal_film_2",
+      "title": "Surreal Cinema - Digital Decay",
+      "description": "Experimental decay and digital erosion sequences",
+      "creator": "Avant-Garde Collective",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 59,
+      "videoFiles": [
+        {
+          "name": "decay.mp4",
+          "durationMs": 1500000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/surreal_film_2/decay.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "surreal_film_2_alt1",
+      "title": "Surreal Cinema - Digital Decay",
+      "description": "Experimental decay and digital erosion sequences",
+      "creator": "Avant-Garde Collective",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 59,
+      "videoFiles": [
+        {
+          "name": "decay.mp4",
+          "durationMs": 1500000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/surreal_film_2/decay.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1600000
+    },
+    {
+      "identifier": "surreal_film_2_alt2",
+      "title": "Surreal Cinema - Digital Decay",
+      "description": "Experimental decay and digital erosion sequences",
+      "creator": "Avant-Garde Collective",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 59,
+      "videoFiles": [
+        {
+          "name": "decay.mp4",
+          "durationMs": 1500000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/surreal_film_2/decay.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1700000
+    },
+    {
+      "identifier": "surreal_film_3",
+      "title": "Surreal Cinema - Temporal Distortion",
+      "description": "Temporal manipulation and distortion effects",
+      "creator": "Avant-Garde Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 57,
+      "videoFiles": [
+        {
+          "name": "temporal.mp4",
+          "durationMs": 1650000,
+          "size": "120000000",
+          "directLink": "https://archive.org/download/surreal_film_3/temporal.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "surreal_film_3_alt1",
+      "title": "Surreal Cinema - Temporal Distortion",
+      "description": "Temporal manipulation and distortion effects",
+      "creator": "Avant-Garde Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 57,
+      "videoFiles": [
+        {
+          "name": "temporal.mp4",
+          "durationMs": 1650000,
+          "size": "120000000",
+          "directLink": "https://archive.org/download/surreal_film_3/temporal.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1750000
+    },
+    {
+      "identifier": "surreal_film_3_alt2",
+      "title": "Surreal Cinema - Temporal Distortion",
+      "description": "Temporal manipulation and distortion effects",
+      "creator": "Avant-Garde Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 57,
+      "videoFiles": [
+        {
+          "name": "temporal.mp4",
+          "durationMs": 1650000,
+          "size": "120000000",
+          "directLink": "https://archive.org/download/surreal_film_3/temporal.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1850000
+    },
+    {
+      "identifier": "edgy_animation_1",
+      "title": "Dark Comedy Animation - Existential Dread",
+      "description": "Dark existential comedy animation",
+      "creator": "Dark Studios",
+      "year": "2016",
+      "category": "animation",
+      "downloads": 82,
+      "videoFiles": [
+        {
+          "name": "dread.mp4",
+          "durationMs": 1450000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/edgy_animation_1/dread.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "edgy_animation_1_alt1",
+      "title": "Dark Comedy Animation - Existential Dread",
+      "description": "Dark existential comedy animation",
+      "creator": "Dark Studios",
+      "year": "2016",
+      "category": "animation",
+      "downloads": 82,
+      "videoFiles": [
+        {
+          "name": "dread.mp4",
+          "durationMs": 1450000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/edgy_animation_1/dread.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1550000
+    },
+    {
+      "identifier": "edgy_animation_1_alt2",
+      "title": "Dark Comedy Animation - Existential Dread",
+      "description": "Dark existential comedy animation",
+      "creator": "Dark Studios",
+      "year": "2016",
+      "category": "animation",
+      "downloads": 82,
+      "videoFiles": [
+        {
+          "name": "dread.mp4",
+          "durationMs": 1450000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/edgy_animation_1/dread.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1650000
+    },
+    {
+      "identifier": "edgy_animation_2",
+      "title": "Dark Comedy Animation - Social Commentary",
+      "description": "Biting social satire animation",
+      "creator": "Dark Studios",
+      "year": "2017",
+      "category": "animation",
+      "downloads": 79,
+      "videoFiles": [
+        {
+          "name": "commentary.mp4",
+          "durationMs": 1350000,
+          "size": "100000000",
+          "directLink": "https://archive.org/download/edgy_animation_2/commentary.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "edgy_animation_2_alt1",
+      "title": "Dark Comedy Animation - Social Commentary",
+      "description": "Biting social satire animation",
+      "creator": "Dark Studios",
+      "year": "2017",
+      "category": "animation",
+      "downloads": 79,
+      "videoFiles": [
+        {
+          "name": "commentary.mp4",
+          "durationMs": 1350000,
+          "size": "100000000",
+          "directLink": "https://archive.org/download/edgy_animation_2/commentary.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1450000
+    },
+    {
+      "identifier": "edgy_animation_2_alt2",
+      "title": "Dark Comedy Animation - Social Commentary",
+      "description": "Biting social satire animation",
+      "creator": "Dark Studios",
+      "year": "2017",
+      "category": "animation",
+      "downloads": 79,
+      "videoFiles": [
+        {
+          "name": "commentary.mp4",
+          "durationMs": 1350000,
+          "size": "100000000",
+          "directLink": "https://archive.org/download/edgy_animation_2/commentary.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1550000
+    },
+    {
+      "identifier": "edgy_animation_3",
+      "title": "Dark Comedy Animation - Psychological Horror",
+      "description": "Psychological and surreal horror animation",
+      "creator": "Dark Studios",
+      "year": "2018",
+      "category": "animation",
+      "downloads": 77,
+      "videoFiles": [
+        {
+          "name": "psych_horror.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/edgy_animation_3/psych_horror.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "edgy_animation_3_alt1",
+      "title": "Dark Comedy Animation - Psychological Horror",
+      "description": "Psychological and surreal horror animation",
+      "creator": "Dark Studios",
+      "year": "2018",
+      "category": "animation",
+      "downloads": 77,
+      "videoFiles": [
+        {
+          "name": "psych_horror.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/edgy_animation_3/psych_horror.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1300000
+    },
+    {
+      "identifier": "edgy_animation_3_alt2",
+      "title": "Dark Comedy Animation - Psychological Horror",
+      "description": "Psychological and surreal horror animation",
+      "creator": "Dark Studios",
+      "year": "2018",
+      "category": "animation",
+      "downloads": 77,
+      "videoFiles": [
+        {
+          "name": "psych_horror.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/edgy_animation_3/psych_horror.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1400000
+    },
+    {
+      "identifier": "vj_loop_collection_1",
+      "title": "VJ Visuals - Chromatic Aberration",
+      "description": "Chromatic aberration visual effects",
+      "creator": "VJ Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 45,
+      "videoFiles": [
+        {
+          "name": "chromatic.mp4",
+          "durationMs": 1100000,
+          "size": "82000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_1/chromatic.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "vj_loop_collection_1_alt1",
+      "title": "VJ Visuals - Chromatic Aberration",
+      "description": "Chromatic aberration visual effects",
+      "creator": "VJ Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 45,
+      "videoFiles": [
+        {
+          "name": "chromatic.mp4",
+          "durationMs": 1100000,
+          "size": "82000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_1/chromatic.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1200000
+    },
+    {
+      "identifier": "vj_loop_collection_1_alt2",
+      "title": "VJ Visuals - Chromatic Aberration",
+      "description": "Chromatic aberration visual effects",
+      "creator": "VJ Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 45,
+      "videoFiles": [
+        {
+          "name": "chromatic.mp4",
+          "durationMs": 1100000,
+          "size": "82000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_1/chromatic.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1300000
+    },
+    {
+      "identifier": "vj_loop_collection_2",
+      "title": "VJ Visuals - Kaleidoscope Chaos",
+      "description": "Kaleidoscopic visual chaos",
+      "creator": "VJ Collective",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 42,
+      "videoFiles": [
+        {
+          "name": "kaleidoscope.mp4",
+          "durationMs": 1300000,
+          "size": "95000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_2/kaleidoscope.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "vj_loop_collection_2_alt1",
+      "title": "VJ Visuals - Kaleidoscope Chaos",
+      "description": "Kaleidoscopic visual chaos",
+      "creator": "VJ Collective",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 42,
+      "videoFiles": [
+        {
+          "name": "kaleidoscope.mp4",
+          "durationMs": 1300000,
+          "size": "95000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_2/kaleidoscope.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1400000
+    },
+    {
+      "identifier": "vj_loop_collection_2_alt2",
+      "title": "VJ Visuals - Kaleidoscope Chaos",
+      "description": "Kaleidoscopic visual chaos",
+      "creator": "VJ Collective",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 42,
+      "videoFiles": [
+        {
+          "name": "kaleidoscope.mp4",
+          "durationMs": 1300000,
+          "size": "95000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_2/kaleidoscope.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1500000
+    },
+    {
+      "identifier": "vj_loop_collection_3",
+      "title": "VJ Visuals - Strobe Pulse",
+      "description": "Strobing pulse visual sequences",
+      "creator": "VJ Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 44,
+      "videoFiles": [
+        {
+          "name": "strobe.mp4",
+          "durationMs": 1050000,
+          "size": "78000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_3/strobe.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "vj_loop_collection_3_alt1",
+      "title": "VJ Visuals - Strobe Pulse",
+      "description": "Strobing pulse visual sequences",
+      "creator": "VJ Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 44,
+      "videoFiles": [
+        {
+          "name": "strobe.mp4",
+          "durationMs": 1050000,
+          "size": "78000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_3/strobe.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1150000
+    },
+    {
+      "identifier": "vj_loop_collection_3_alt2",
+      "title": "VJ Visuals - Strobe Pulse",
+      "description": "Strobing pulse visual sequences",
+      "creator": "VJ Collective",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 44,
+      "videoFiles": [
+        {
+          "name": "strobe.mp4",
+          "durationMs": 1050000,
+          "size": "78000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_3/strobe.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1250000
+    },
+    {
+      "identifier": "vj_loop_collection_4",
+      "title": "VJ Visuals - Generative Mandala",
+      "description": "Generative mandala pattern sequences",
+      "creator": "VJ Collective",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 46,
+      "videoFiles": [
+        {
+          "name": "mandala.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_4/mandala.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "vj_loop_collection_4_alt1",
+      "title": "VJ Visuals - Generative Mandala",
+      "description": "Generative mandala pattern sequences",
+      "creator": "VJ Collective",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 46,
+      "videoFiles": [
+        {
+          "name": "mandala.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_4/mandala.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1300000
+    },
+    {
+      "identifier": "vj_loop_collection_4_alt2",
+      "title": "VJ Visuals - Generative Mandala",
+      "description": "Generative mandala pattern sequences",
+      "creator": "VJ Collective",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 46,
+      "videoFiles": [
+        {
+          "name": "mandala.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/vj_loop_collection_4/mandala.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1400000
+    },
+    {
+      "identifier": "pixel_animation_1",
+      "title": "Pixel Art Animation - Retro Cyberpunk",
+      "description": "Cyberpunk themed pixel animation",
+      "creator": "Pixel Collective",
+      "year": "2019",
+      "category": "animation",
+      "downloads": 73,
+      "videoFiles": [
+        {
+          "name": "cyberpunk.mp4",
+          "durationMs": 1100000,
+          "size": "82000000",
+          "directLink": "https://archive.org/download/pixel_animation_1/cyberpunk.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "pixel_animation_1_alt1",
+      "title": "Pixel Art Animation - Retro Cyberpunk",
+      "description": "Cyberpunk themed pixel animation",
+      "creator": "Pixel Collective",
+      "year": "2019",
+      "category": "animation",
+      "downloads": 73,
+      "videoFiles": [
+        {
+          "name": "cyberpunk.mp4",
+          "durationMs": 1100000,
+          "size": "82000000",
+          "directLink": "https://archive.org/download/pixel_animation_1/cyberpunk.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1200000
+    },
+    {
+      "identifier": "pixel_animation_1_alt2",
+      "title": "Pixel Art Animation - Retro Cyberpunk",
+      "description": "Cyberpunk themed pixel animation",
+      "creator": "Pixel Collective",
+      "year": "2019",
+      "category": "animation",
+      "downloads": 73,
+      "videoFiles": [
+        {
+          "name": "cyberpunk.mp4",
+          "durationMs": 1100000,
+          "size": "82000000",
+          "directLink": "https://archive.org/download/pixel_animation_1/cyberpunk.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1300000
+    },
+    {
+      "identifier": "pixel_animation_2",
+      "title": "Pixel Art Animation - Digital Decay",
+      "description": "Pixel art with decay and corruption effects",
+      "creator": "Pixel Collective",
+      "year": "2018",
+      "category": "animation",
+      "downloads": 71,
+      "videoFiles": [
+        {
+          "name": "pixel_decay.mp4",
+          "durationMs": 950000,
+          "size": "72000000",
+          "directLink": "https://archive.org/download/pixel_animation_2/pixel_decay.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "pixel_animation_2_alt1",
+      "title": "Pixel Art Animation - Digital Decay",
+      "description": "Pixel art with decay and corruption effects",
+      "creator": "Pixel Collective",
+      "year": "2018",
+      "category": "animation",
+      "downloads": 71,
+      "videoFiles": [
+        {
+          "name": "pixel_decay.mp4",
+          "durationMs": 950000,
+          "size": "72000000",
+          "directLink": "https://archive.org/download/pixel_animation_2/pixel_decay.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1050000
+    },
+    {
+      "identifier": "pixel_animation_2_alt2",
+      "title": "Pixel Art Animation - Digital Decay",
+      "description": "Pixel art with decay and corruption effects",
+      "creator": "Pixel Collective",
+      "year": "2018",
+      "category": "animation",
+      "downloads": 71,
+      "videoFiles": [
+        {
+          "name": "pixel_decay.mp4",
+          "durationMs": 950000,
+          "size": "72000000",
+          "directLink": "https://archive.org/download/pixel_animation_2/pixel_decay.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1150000
+    },
+    {
+      "identifier": "pixel_animation_3",
+      "title": "Pixel Art Animation - Retro Horror",
+      "description": "Retro style horror pixel animation",
+      "creator": "Pixel Collective",
+      "year": "2017",
+      "category": "animation",
+      "downloads": 68,
+      "videoFiles": [
+        {
+          "name": "pixel_horror.mp4",
+          "durationMs": 1050000,
+          "size": "78000000",
+          "directLink": "https://archive.org/download/pixel_animation_3/pixel_horror.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "pixel_animation_3_alt1",
+      "title": "Pixel Art Animation - Retro Horror",
+      "description": "Retro style horror pixel animation",
+      "creator": "Pixel Collective",
+      "year": "2017",
+      "category": "animation",
+      "downloads": 68,
+      "videoFiles": [
+        {
+          "name": "pixel_horror.mp4",
+          "durationMs": 1050000,
+          "size": "78000000",
+          "directLink": "https://archive.org/download/pixel_animation_3/pixel_horror.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1150000
+    },
+    {
+      "identifier": "pixel_animation_3_alt2",
+      "title": "Pixel Art Animation - Retro Horror",
+      "description": "Retro style horror pixel animation",
+      "creator": "Pixel Collective",
+      "year": "2017",
+      "category": "animation",
+      "downloads": 68,
+      "videoFiles": [
+        {
+          "name": "pixel_horror.mp4",
+          "durationMs": 1050000,
+          "size": "78000000",
+          "directLink": "https://archive.org/download/pixel_animation_3/pixel_horror.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1250000
+    },
+    {
+      "identifier": "abstract_film_2",
+      "title": "Experimental Cinema - Color Dissolution",
+      "description": "Abstract film with color dissolving effects",
+      "creator": "Experimental Filmmakers",
+      "year": "2016",
+      "category": "experimental",
+      "downloads": 56,
+      "videoFiles": [
+        {
+          "name": "color_dissolution.mp4",
+          "durationMs": 1400000,
+          "size": "105000000",
+          "directLink": "https://archive.org/download/abstract_film_2/color_dissolution.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "abstract_film_2_alt1",
+      "title": "Experimental Cinema - Color Dissolution",
+      "description": "Abstract film with color dissolving effects",
+      "creator": "Experimental Filmmakers",
+      "year": "2016",
+      "category": "experimental",
+      "downloads": 56,
+      "videoFiles": [
+        {
+          "name": "color_dissolution.mp4",
+          "durationMs": 1400000,
+          "size": "105000000",
+          "directLink": "https://archive.org/download/abstract_film_2/color_dissolution.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1500000
+    },
+    {
+      "identifier": "abstract_film_2_alt2",
+      "title": "Experimental Cinema - Color Dissolution",
+      "description": "Abstract film with color dissolving effects",
+      "creator": "Experimental Filmmakers",
+      "year": "2016",
+      "category": "experimental",
+      "downloads": 56,
+      "videoFiles": [
+        {
+          "name": "color_dissolution.mp4",
+          "durationMs": 1400000,
+          "size": "105000000",
+          "directLink": "https://archive.org/download/abstract_film_2/color_dissolution.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1600000
+    },
+    {
+      "identifier": "abstract_film_3",
+      "title": "Experimental Cinema - Texture Mutation",
+      "description": "Film exploring texture mutation and metamorphosis",
+      "creator": "Experimental Filmmakers",
+      "year": "2017",
+      "category": "experimental",
+      "downloads": 54,
+      "videoFiles": [
+        {
+          "name": "texture_mutation.mp4",
+          "durationMs": 1550000,
+          "size": "115000000",
+          "directLink": "https://archive.org/download/abstract_film_3/texture_mutation.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "abstract_film_3_alt1",
+      "title": "Experimental Cinema - Texture Mutation",
+      "description": "Film exploring texture mutation and metamorphosis",
+      "creator": "Experimental Filmmakers",
+      "year": "2017",
+      "category": "experimental",
+      "downloads": 54,
+      "videoFiles": [
+        {
+          "name": "texture_mutation.mp4",
+          "durationMs": 1550000,
+          "size": "115000000",
+          "directLink": "https://archive.org/download/abstract_film_3/texture_mutation.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1650000
+    },
+    {
+      "identifier": "abstract_film_3_alt2",
+      "title": "Experimental Cinema - Texture Mutation",
+      "description": "Film exploring texture mutation and metamorphosis",
+      "creator": "Experimental Filmmakers",
+      "year": "2017",
+      "category": "experimental",
+      "downloads": 54,
+      "videoFiles": [
+        {
+          "name": "texture_mutation.mp4",
+          "durationMs": 1550000,
+          "size": "115000000",
+          "directLink": "https://archive.org/download/abstract_film_3/texture_mutation.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1750000
+    },
+    {
+      "identifier": "abstract_film_4",
+      "title": "Experimental Cinema - Light Interplay",
+      "description": "Exploration of light and shadow in abstract form",
+      "creator": "Experimental Filmmakers",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 53,
+      "videoFiles": [
+        {
+          "name": "light_interplay.mp4",
+          "durationMs": 1450000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/abstract_film_4/light_interplay.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "abstract_film_4_alt1",
+      "title": "Experimental Cinema - Light Interplay",
+      "description": "Exploration of light and shadow in abstract form",
+      "creator": "Experimental Filmmakers",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 53,
+      "videoFiles": [
+        {
+          "name": "light_interplay.mp4",
+          "durationMs": 1450000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/abstract_film_4/light_interplay.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1550000
+    },
+    {
+      "identifier": "abstract_film_4_alt2",
+      "title": "Experimental Cinema - Light Interplay",
+      "description": "Exploration of light and shadow in abstract form",
+      "creator": "Experimental Filmmakers",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 53,
+      "videoFiles": [
+        {
+          "name": "light_interplay.mp4",
+          "durationMs": 1450000,
+          "size": "110000000",
+          "directLink": "https://archive.org/download/abstract_film_4/light_interplay.mp4",
+          "streamingLink": ""
+        }
+      ],
+      "durationMs": 1650000
+    },
+    {
+      "identifier": "datamosh_collection_1",
+      "title": "Datamosh Art - Digital Collapse",
+      "description": "Datamosh video with digital collapse effects",
+      "creator": "Digital Moshing Artists",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 38,
+      "videoFiles": [
+        {
+          "name": "digital_collapse.mp4",
+          "durationMs": 800000,
+          "size": "60000000",
+          "directLink": "https://archive.org/download/datamosh_collection_1/digital_collapse.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "datamosh_collection_2",
+      "title": "Datamosh Art - Compression Artifacts",
+      "description": "Artistic use of compression artifacts",
+      "creator": "Digital Moshing Artists",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 36,
+      "videoFiles": [
+        {
+          "name": "compression.mp4",
+          "durationMs": 750000,
+          "size": "56000000",
+          "directLink": "https://archive.org/download/datamosh_collection_2/compression.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "datamosh_collection_3",
+      "title": "Datamosh Art - Algorithm Dreams",
+      "description": "Algorithmic datamoshing dream sequences",
+      "creator": "Digital Moshing Artists",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 37,
+      "videoFiles": [
+        {
+          "name": "algorithm_dreams.mp4",
+          "durationMs": 900000,
+          "size": "68000000",
+          "directLink": "https://archive.org/download/datamosh_collection_3/algorithm_dreams.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "stop_motion_weird",
+      "title": "Stop Motion - Uncanny Automata",
+      "description": "Uncanny stop motion with weird automata",
+      "creator": "Stop Motion Studio",
+      "year": "2017",
+      "category": "animation",
+      "downloads": 64,
+      "videoFiles": [
+        {
+          "name": "automata.mp4",
+          "durationMs": 1250000,
+          "size": "93000000",
+          "directLink": "https://archive.org/download/stop_motion_weird/automata.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "stop_motion_dark",
+      "title": "Stop Motion - Dark Whimsy",
+      "description": "Stop motion with dark whimsical themes",
+      "creator": "Stop Motion Studio",
+      "year": "2018",
+      "category": "animation",
+      "downloads": 61,
+      "videoFiles": [
+        {
+          "name": "dark_whimsy.mp4",
+          "durationMs": 1150000,
+          "size": "86000000",
+          "directLink": "https://archive.org/download/stop_motion_dark/dark_whimsy.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "foam_animation_1",
+      "title": "Foam Animation - Visceral Forms",
+      "description": "Experimental foam and form animation",
+      "creator": "Experimental Animation Labs",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 47,
+      "videoFiles": [
+        {
+          "name": "visceral_forms.mp4",
+          "durationMs": 1300000,
+          "size": "97000000",
+          "directLink": "https://archive.org/download/foam_animation_1/visceral_forms.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "foam_animation_2",
+      "title": "Foam Animation - Organic Chaos",
+      "description": "Organic chaos through foam manipulation",
+      "creator": "Experimental Animation Labs",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 43,
+      "videoFiles": [
+        {
+          "name": "organic_chaos.mp4",
+          "durationMs": 1100000,
+          "size": "82000000",
+          "directLink": "https://archive.org/download/foam_animation_2/organic_chaos.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "found_footage_horror",
+      "title": "Found Footage Anthology - Analog Decay",
+      "description": "Surreal found footage with analog decay",
+      "creator": "Found Footage Collective",
+      "year": "2016",
+      "category": "experimental",
+      "downloads": 50,
+      "videoFiles": [
+        {
+          "name": "analog_decay.mp4",
+          "durationMs": 1600000,
+          "size": "120000000",
+          "directLink": "https://archive.org/download/found_footage_horror/analog_decay.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "kinetic_typography",
+      "title": "Kinetic Typography - Text Dissolution",
+      "description": "Experimental typography in motion",
+      "creator": "Type Animators",
+      "year": "2019",
+      "category": "animation",
+      "downloads": 66,
+      "videoFiles": [
+        {
+          "name": "text_dissolution.mp4",
+          "durationMs": 950000,
+          "size": "71000000",
+          "directLink": "https://archive.org/download/kinetic_typography/text_dissolution.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "shader_art_1",
+      "title": "Shader Art - Quantum Realm",
+      "description": "GPU shader-based abstract visuals",
+      "creator": "Shader Artists",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 41,
+      "videoFiles": [
+        {
+          "name": "quantum.mp4",
+          "durationMs": 1250000,
+          "size": "93000000",
+          "directLink": "https://archive.org/download/shader_art_1/quantum.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "shader_art_2",
+      "title": "Shader Art - Neural Network Dreams",
+      "description": "AI-inspired shader visualization",
+      "creator": "Shader Artists",
+      "year": "2020",
+      "category": "experimental",
+      "downloads": 40,
+      "videoFiles": [
+        {
+          "name": "neural_dreams.mp4",
+          "durationMs": 1350000,
+          "size": "100000000",
+          "directLink": "https://archive.org/download/shader_art_2/neural_dreams.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "net_art_intervention",
+      "title": "Net Art - Browser Chaos",
+      "description": "Surreal browser-based net art piece",
+      "creator": "Net Artists",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 35,
+      "videoFiles": [
+        {
+          "name": "browser_chaos.mp4",
+          "durationMs": 1100000,
+          "size": "82000000",
+          "directLink": "https://archive.org/download/net_art_intervention/browser_chaos.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "glitch_music_visual",
+      "title": "Glitch Music Video - Sonic Corruption",
+      "description": "Music video with glitch and corruption effects",
+      "creator": "Experimental Musicians",
+      "year": "2019",
+      "category": "experimental",
+      "downloads": 39,
+      "videoFiles": [
+        {
+          "name": "sonic_corruption.mp4",
+          "durationMs": 950000,
+          "size": "71000000",
+          "directLink": "https://archive.org/download/glitch_music_visual/sonic_corruption.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "analog_synth_visual",
+      "title": "Analog Synth Visuals - Wave Propagation",
+      "description": "Analog synthesizer visualization",
+      "creator": "Synth Visualists",
+      "year": "2018",
+      "category": "experimental",
+      "downloads": 34,
+      "videoFiles": [
+        {
+          "name": "waves.mp4",
+          "durationMs": 1200000,
+          "size": "90000000",
+          "directLink": "https://archive.org/download/analog_synth_visual/waves.mp4",
+          "streamingLink": ""
+        }
+      ]
+    },
+    {
+      "identifier": "circuit_bending_visual",
+      "title": "Circuit Bending Visuals - Hardware Hacking",
+      "description": "Visual representation of hardware hacking",
+      "creator": "Circuit Benders",
+      "year": "2017",
+      "category": "experimental",
+      "downloads": 32,
+      "videoFiles": [
+        {
+          "name": "hardware_hack.mp4",
+          "durationMs": 1050000,
+          "size": "79000000",
+          "directLink": "https://archive.org/download/circuit_bending_visual/hardware_hack.mp4",
           "streamingLink": ""
         }
       ]
